@@ -1,0 +1,166 @@
+/* ===== Base ===== */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #faf9f7;
+  color: #2f2f2f;
+  line-height: 1.7;
+  scroll-behavior: smooth;
+}
+
+/* ===== Header / Hero ===== */
+header {
+  background-color: #f5f1ec;
+  padding: 140px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.3rem;
+  color: #6b6258;
+  margin-bottom: 35px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  margin: 8px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn {
+  background-color: #2f2f2f;
+  color: #ffffff;
+}
+
+.btn:hover {
+  background-color: #000000;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  border: 1.5px solid #2f2f2f;
+  color: #2f2f2f;
+}
+
+.btn.secondary:hover {
+  background-color: #2f2f2f;
+  color: #ffffff;
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: 90px 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* ===== Headings ===== */
+h2 {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 600;
+}
+
+/* ===== Cards ===== */
+.card {
+  background-color: #ffffff;
+  padding: 35px;
+  margin-bottom: 30px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+/* ===== Skills ===== */
+.skill {
+  margin-bottom: 25px;
+}
+
+.skill span {
+  font-weight: 500;
+}
+
+.progress {
+  background-color: #e6e1da;
+  border-radius: 20px;
+  height: 12px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress div {
+  height: 100%;
+  background-color: #c9b8a5;
+  border-radius: 20px;
+}
+
+/* ===== Testimonials ===== */
+#testimonials .card {
+  font-style: italic;
+  background-color: #fdfcfb;
+}
+
+/* ===== Contact ===== */
+.contact-section {
+  background-color: #f5f1ec;
+  text-align: center;
+}
+
+.contact-section a {
+  color: #2f2f2f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 25px;
+  font-size: 0.9rem;
+  color: #8a8278;
+}
+
+/* ===== Animation ===== */
+.fade-in {
+  animation: fadeInUp 1.2s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
