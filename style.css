@@ -10,6 +10,9 @@ body {
   scroll-behavior: smooth;
   animation: pageFadeIn 1s ease forwards;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 @keyframes pageFadeIn {
   from { opacity: 0; }
