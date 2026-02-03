@@ -1,4 +1,6 @@
-/* ===== Base ===== */
+/* =========================
+   Base Styles
+========================= */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -6,9 +8,17 @@ body {
   color: #2f2f2f;
   line-height: 1.7;
   scroll-behavior: smooth;
+  animation: pageFadeIn 1s ease forwards;
 }
 
-/* ===== Header / Hero ===== */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =========================
+   Header / Hero
+========================= */
 header {
   background-color: #f5f1ec;
   padding: 140px 20px;
@@ -27,24 +37,43 @@ header p {
   margin-bottom: 35px;
 }
 
-/* ===== Buttons ===== */
+/* =========================
+   Buttons
+========================= */
 .btn {
   display: inline-block;
   padding: 14px 28px;
   margin: 8px;
   border-radius: 30px;
-  text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn {
-  background-color: #2f2f2f;
+  text-decoration: none;
   color: #ffffff;
+  background-color: #2f2f2f;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
   background-color: #000000;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn:hover::after {
+  width: 220%;
+  height: 220%;
 }
 
 .btn.secondary {
@@ -58,140 +87,94 @@ header p {
   color: #ffffff;
 }
 
-/* ===== Sections ===== */
+/* =========================
+   Sections & Layout
+========================= */
 .section {
   padding: 90px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: sectionReveal 1s ease forwards;
+}
+
+.section:nth-of-type(1) { animation-delay: 0.2s; }
+.section:nth-of-type(2) { animation-delay: 0.4s; }
+.section:nth-of-type(3) { animation-delay: 0.6s; }
+.section:nth-of-type(4) { animation-delay: 0.8s; }
+
+@keyframes sectionReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .container {
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
 }
 
-/* ===== Headings ===== */
+/* =========================
+   Headings
+========================= */
 h2 {
   font-size: 2.4rem;
+  font-weight: 600;
   text-align: center;
   margin-bottom: 50px;
-  font-weight: 600;
+  position: relative;
 }
 
-/* ===== Cards ===== */
-.card {
+h2::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: #c9b8a5;
+  margin: 14px auto 0;
+  border-radius: 2px;
+  animation: underlineGrow 0.8s ease forwards;
+}
+
+@keyframes underlineGrow {
+  to { width: 70px; }
+}
+
+/* =========================
+   Cards (General + Achievements)
+========================= */
+.card,
+.achievement-card {
   background-color: #ffffff;
   padding: 35px;
   margin-bottom: 30px;
   border-radius: 18px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  animation: cardFadeUp 0.9s ease forwards;
 }
 
-.card:hover {
-  transform: translateY(-4px);
+.card:nth-child(1),
+.achievement-card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2),
+.achievement-card:nth-child(2) { animation-delay: 0.35s; }
+.card:nth-child(3),
+.achievement-card:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes cardFadeUp {
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.card h3 {
-  margin-top: 0;
-  font-weight: 600;
-}
-
-/* ===== Skills ===== */
-.skill {
-  margin-bottom: 25px;
-}
-
-.skill span {
-  font-weight: 500;
-}
-
-.progress {
-  background-color: #e6e1da;
-  border-radius: 20px;
-  height: 12px;
-  margin-top: 10px;
-  overflow: hidden;
-}
-
-.progress div {
-  height: 100%;
-  background-color: #c9b8a5;
-  border-radius: 20px;
-}
-
-/* ===== Testimonials ===== */
-#testimonials .card {
-  font-style: italic;
-  background-color: #fdfcfb;
-}
-
-/* ===== Contact ===== */
-.contact-section {
-  background-color: #f5f1ec;
-  text-align: center;
-}
-
-.contact-section a {
-  color: #2f2f2f;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.contact-section a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Footer ===== */
-footer {
-  background-color: #ffffff;
-  text-align: center;
-  padding: 25px;
-  font-size: 0.9rem;
-  color: #8a8278;
-}
-
-/* ===== Animation ===== */
-.fade-in {
-  animation: fadeInUp 1.2s ease both;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* ===== Achievements ===== */
-.achievements {
-  padding: 90px 20px;
-}
-
-.achievement-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.achievement-card {
-  background-color: #ffffff;
-  padding: 35px;
-  border-radius: 18px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-}
-
+.card:hover,
 .achievement-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.01);
 }
 
+.card h3,
 .achievement-card h3 {
   margin-top: 0;
-  margin-bottom: 6px;
-  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -224,29 +207,111 @@ footer {
 .achievement-link:hover {
   text-decoration: underline;
 }
-.infographic-section {
-  margin-top: 40px;
-  max-width: 900px;
+
+/* =========================
+   Skills
+========================= */
+.skill {
+  margin-bottom: 25px;
 }
 
-.infographic-preview {
-  width: 100%;
-  max-width: 800px;
-  display: block;
-  margin: 20px 0;
-  border-radius: 8px;
-}
-
-.download-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
+.skill span {
   font-weight: 500;
 }
 
-.download-btn:hover {
-  background-color: #333;
+.progress {
+  height: 12px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: #e6e1da;
+  overflow: hidden;
+}
+
+.progress div {
+  height: 100%;
+  border-radius: 20px;
+  background-color: #c9b8a5;
+}
+
+/* =========================
+   Testimonials
+========================= */
+#testimonials .card {
+  font-style: italic;
+  background-color: #fdfcfb;
+}
+
+/* =========================
+   Contact
+========================= */
+.contact-section {
+  background-color: #f5f1ec;
+  text-align: center;
+}
+
+.contact-section a {
+  color: #2f2f2f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  background-color: #ffffff;
+  padding: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #8a8278;
+}
+
+/* =========================
+   Infographic / Images
+========================= */
+.infographic-preview,
+img {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+@keyframes floatSoft {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* =========================
+   Animations
+========================= */
+.fade-in {
+  animation: fadeInUp 1.2s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   Achievement Cards Grid
+========================= */
+.achievement-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+/* =========================
+   Accessibility
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
