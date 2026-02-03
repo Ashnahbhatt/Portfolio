@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
 <!-- ===== Navigation ===== -->
 <nav class="navbar">
   <div class="container nav-container">
@@ -19,6 +20,7 @@
       <li><a href="#about">About Me</a></li>
       <li><a href="#infographic">My Infographic</a></li>
       <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
@@ -27,7 +29,7 @@
 </nav>
 
 <!-- ===== Header ===== -->
-<header id="home" class="header-section">
+<header id="home" class="header-section fade-in">
   <div class="container header-content">
     <h1>Ashnah Bhatt</h1>
     <p>Revenue-focused sales and marketing professional with strong CRM expertise and a consultative, results-driven approach.</p>
@@ -39,7 +41,7 @@
 </header>
 
 <!-- ===== About Me ===== -->
-<section id="about" class="section">
+<section id="about" class="section fade-in">
   <div class="container">
     <h2>About Me</h2>
     <p>
@@ -62,7 +64,7 @@
 </section>
 
 <!-- ===== Experience ===== -->
-<section class="section">
+<section class="section fade-in">
   <div class="container">
     <h2>Experience</h2>
 
@@ -96,12 +98,12 @@
 </section>
 
 <!-- ===== Achievements ===== -->
-<section id="achievements" class="section">
+<section id="achievements" class="section fade-in">
   <div class="container">
     <h2>Achievements</h2>
     <div class="achievement-cards">
 
-      <div class="achievement-card">
+      <div class="achievement-card fade-in">
         <h3>Student Support Ambassador</h3>
         <span class="achievement-org">University of East Anglia</span>
         <p>
@@ -113,7 +115,7 @@
         </div>
       </div>
 
-      <div class="achievement-card">
+      <div class="achievement-card fade-in">
         <h3>Channel Sales Manager</h3>
         <span class="achievement-org">Lodha Group</span>
         <p>
@@ -125,7 +127,7 @@
         </div>
       </div>
 
-      <div class="achievement-card">
+      <div class="achievement-card fade-in">
         <h3>Google Certificate</h3>
         <span class="achievement-org">Google / Online Certification</span>
         <p>
@@ -139,7 +141,7 @@
 </section>
 
 <!-- ===== Infographic ===== -->
-<section id="infographic" class="section">
+<section id="infographic" class="section fade-in">
   <div class="container">
     <h2>My Professional Infographic</h2>
     <p>This infographic gives a clear visual overview of my experience, skills, and achievements.</p>
@@ -151,7 +153,7 @@
 </section>
 
 <!-- ===== Skills ===== -->
-<section class="section">
+<section class="section fade-in">
   <div class="container">
     <h2>Skills</h2>
     <div class="skill"><span>Customer Service & Enquiry Handling</span><div class="progress"><div style="width:95%"></div></div></div>
@@ -162,7 +164,7 @@
 </section>
 
 <!-- ===== Testimonials ===== -->
-<section id="testimonials" class="section">
+<section id="testimonials" class="section fade-in">
   <div class="container">
     <h2>Testimonials</h2>
     <div class="card">“I had the pleasure of working with Ashnah, and she consistently demonstrated exceptional professionalism and strategic thinking. Her ability to handle channel partners and secure deals was impressive.”<strong>— Annmol Sebastian</strong><br><span>Sales – Luxury & Premium Housing, Lodha</span></div>
@@ -173,9 +175,9 @@
 </section>
 
 <!-- ===== Contact ===== -->
-<section id="contact" class="section contact-section">
-  <div class="container">
-    <h2>Contact</h2>
+<section id="contact" class="section fade-in contact-section">
+  <div class="container contact-card">
+    <h2>Contact Me</h2>
     <p>Email: <a href="mailto:bhattashnah84@gmail.com">bhattashnah84@gmail.com</a></p>
     <p>Phone: <a href="tel:07712480481">07712480481</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/ashnah-bhatt" target="_blank">linkedin.com/in/ashnah-bhatt</a></p>
@@ -186,12 +188,21 @@
   <p>© 2026 Ashnah Bhatt</p>
 </footer>
 
-<!-- ===== Scripts ===== -->
 <script>
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   toggle.addEventListener('click', () => links.classList.toggle('nav-links-active'));
+
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.1, rootMargin:"0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('appear');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+  faders.forEach(fader=>appearOnScroll.observe(fader));
 </script>
 </body>
 </html>
-
