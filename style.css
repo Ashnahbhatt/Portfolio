@@ -224,3 +224,29 @@ footer {
 .achievement-link:hover {
   text-decoration: underline;
 }
+.infographic-section {
+  margin-top: 40px;
+  max-width: 900px;
+}
+
+.infographic-preview {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.download-btn:hover {
+  background-color: #333;
+}
