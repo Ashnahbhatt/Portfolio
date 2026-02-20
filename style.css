@@ -256,3 +256,62 @@ footer{
   transform:rotateY(180deg);
   font-size:.95rem;
 }
+/* ===== Flash Card Skills ===== */
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  margin-top:40px;
+  perspective:1000px;
+}
+
+.skill-card{
+  height:170px;
+}
+
+.skill-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transition:transform .7s;
+  transform-style:preserve-3d;
+  cursor:pointer;
+}
+
+.skill-card:hover .skill-inner{
+  transform:rotateY(180deg);
+}
+
+.skill-inner.flip{
+  transform:rotateY(180deg);
+}
+
+.skill-front,
+.skill-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  backface-visibility:hidden;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+}
+
+.skill-front{
+  background:linear-gradient(135deg,#4f46e5,#6366f1);
+  color:white;
+  font-weight:600;
+  font-size:1.1rem;
+}
+
+.skill-back{
+  background:white;
+  color:#374151;
+  transform:rotateY(180deg);
+  font-size:.95rem;
+}
