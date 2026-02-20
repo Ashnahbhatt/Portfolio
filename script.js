@@ -47,3 +47,9 @@ function showTestimonial() {
 
 setInterval(showTestimonial, 3500);
 showTestimonial();
+/* tap flip for mobile */
+document.querySelectorAll(".skill-card").forEach(card=>{
+  card.addEventListener("click", ()=>{
+    card.querySelector(".skill-inner").classList.toggle("flip");
+  });
+});
