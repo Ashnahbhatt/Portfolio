@@ -200,3 +200,73 @@ footer{
   text-align:center;
   background:#e0f2fe;
 }
+/* ===== Typing Intro ===== */
+.intro-title{
+  font-size:3rem;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.typing::after{
+  content:"|";
+  animation:blink .8s infinite;
+}
+
+@keyframes blink{
+  0%,100%{opacity:1;}
+  50%{opacity:0;}
+}
+
+/* Fade text */
+.fade-text{
+  opacity:0;
+  animation:fadeIn 2s forwards;
+  animation-delay:2.2s;
+}
+
+@keyframes fadeIn{
+  to{opacity:1;}
+}
+
+/* Read more link */
+.read-more{
+  display:inline-block;
+  margin:15px 0 25px;
+  color:white;
+  font-weight:500;
+  text-decoration:none;
+  opacity:.9;
+  transition:.3s;
+}
+
+.read-more:hover{
+  transform:translateY(4px);
+  opacity:1;
+}
+
+/* ===== Contact Cards ===== */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.contact-card{
+  padding:30px;
+  border-radius:18px;
+  background:white;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(37,99,235,.12);
+  transition:.35s;
+}
+
+.contact-card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 25px 60px rgba(37,99,235,.25);
+}
+
+.contact-card h3{
+  color:#2563eb;
+  margin-bottom:10px;
+}
