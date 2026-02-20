@@ -59,3 +59,36 @@ document.querySelectorAll(".skill-card").forEach(card=>{
     card.querySelector(".skill-inner").classList.toggle("flip");
   });
 });
+/* ===== Typing Animation ===== */
+
+const text = "Hi, I'm Ashnah Bhatt";
+let index = 0;
+const speed = 70;
+
+function typeWriter(){
+  if(index < text.length){
+    document.querySelector(".typing").textContent += text.charAt(index);
+    index++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+window.addEventListener("load", typeWriter);
+
+
+/* ===== Scroll Reveal Animation ===== */
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+  reveals.forEach(el=>{
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+
+    if(elementTop < windowHeight - 80){
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
