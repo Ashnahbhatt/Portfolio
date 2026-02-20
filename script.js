@@ -53,3 +53,9 @@ document.querySelectorAll(".skill-card").forEach(card=>{
     card.querySelector(".skill-inner").classList.toggle("flip");
   });
 });
+/* tap flip for mobile */
+document.querySelectorAll(".skill-card").forEach(card=>{
+  card.addEventListener("click", ()=>{
+    card.querySelector(".skill-inner").classList.toggle("flip");
+  });
+});
