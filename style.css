@@ -20,7 +20,7 @@ body{
 }
 
 /* ===== Glass Navbar ===== */
-navbar {
+.navbar {
   position: sticky;
   top: 0;
   background: #fff;
